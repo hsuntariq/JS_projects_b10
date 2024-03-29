@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .ball {
+            height: 200px;
+            width: 200px;
+            background: gold;
+            border-radius: 50%;
+            position: absolute;
+            transition: all 0.4s;
+            filter: blur(40px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ball"></div>
+
+
+    <script>
+        let ball = document.querySelector('.ball')
+        window.addEventListener('mousemove', (e) => {
+            let xCord = e.clientX;
+            let yCord = e.clientY;
+            ball.style.transform = `translate(${xCord}px,${yCord}px)`
+        })
+    </script>
+
+
+</body>
+
+</html>
