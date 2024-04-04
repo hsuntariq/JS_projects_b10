@@ -1,12 +1,35 @@
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 body {
     background-color: #141654;
     color: white;
-
 }
+
 
 
 i {
     cursor: pointer;
+}
+
+
+
+.animate {
+    animation: move 0.7s linear;
+}
+
+@keyframes move {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 
@@ -22,8 +45,136 @@ i {
     display: block;
 }
 
+
+.lines {
+    cursor: pointer;
+}
+
 .line {
     width: 100%;
     height: 2px;
     background-color: white;
+    transition: all 0.3s;
+}
+
+.sidebar {
+    height: 100vh;
+    background: red;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: all 0.7s cubic-bezier(.02, .55, .83, .64);
+    transform: translateX(-100%);
+}
+
+.menu {
+    z-index: 100;
+}
+
+.show-sidebar {
+    transform: translateX(0);
+}
+
+.hide-line2 {
+    visibility: hidden;
+}
+
+.line1-cross {
+    transform: translateY(20px) rotate(-135deg);
+}
+
+.line3-cross {
+    transform: translateY(8px) rotate(135deg);
+}
+
+.inner-html {
+    transition: all 0.9s;
+    position: relative;
+}
+
+.inner-html::after {
+    content: '';
+    position: absolute;
+    background: red;
+    width: 150%;
+    height: 10%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: slide 0.3s linear infinite alternate-reverse;
+
+}
+
+@keyframes slide {
+    from {
+        /* transform: translateX(0px); */
+        height: 10%;
+    }
+
+    to {
+        height: 50%;
+        /* transform: translateX(10px); */
+
+    }
+}
+
+
+/* ---- reset ---- */
+
+
+canvas {
+    display: block;
+    vertical-align: bottom;
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #141654;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    top: 0;
+    z-index: -1;
+}
+
+/* ---- stats.js ---- */
+.count-particles {
+    background: #000022;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 80px;
+    color: #13E8E9;
+    font-size: .8em;
+    text-align: left;
+    text-indent: 4px;
+    line-height: 14px;
+    padding-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.js-count-particles {
+    font-size: 1.1em;
+}
+
+#stats,
+.count-particles {
+    -webkit-user-select: none;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#stats {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+}
+
+.count-particles {
+    border-radius: 0 0 3px 3px;
 }
